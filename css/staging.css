@@ -1,0 +1,61 @@
+
+/*
+  Copyright (c) 2017 Hao Peng
+  Released under the MIT license
+  https://github.com/haoopeng/echo/blob/master/LICENSE
+*/
+.graph-layout{
+  background-color: #FAFAFA;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.color-pixel > p{
+  width: 15px;
+  height: 15px;
+  background-size: 100%;
+  margin: 0;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row-center {
+  display: flex;
+  align-items: center;
+}
+
+#demo-controls, .demo-article, .intro-section{
+  height: initial !important;
+}
+
+#demo-color-graph {
+  padding-bottom: 20px;
+}
+
+.plot-title {
+  text-align: center;
+}
+
+.border-box {
+  border: 1px solid #eee;
+}
+
+#opinion-graph-downloader{
+  color: #333;
+  background-color: #FFF;
+  width: 150px;
+  text-align: center;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-width: 1px;
+  border-style: solid;
+  padding: 1px 7px 2px;
+}

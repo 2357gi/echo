@@ -1,0 +1,260 @@
+<!--
+  Copyright (c) 2017 Hao Peng
+  Released under the MIT license
+  https://github.com/haoopeng/echo/blob/master/LICENSE
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Social Media Echo Chamber</title>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+  <meta property="og:title" content="EchoDemo" />
+  <meta property="og:description" content="How echo chambers emerge from social media" />
+  <meta property="og:url" content="https://haoopeng.github.io/echo-demo/" />
+  <meta property="og:image" content="https://haoopeng.github.io/echo-demo/img/EchoDemo.jpg" />
+  <meta property="og:type" content="website" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+  <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link type="text/css" rel="stylesheet" href="css/main.css"/>
+  <link type="text/css" rel="stylesheet" href="css/staging.css"/>
+  <link type="text/css" rel="stylesheet" href="css/jBox.css"/>
+  <link type="text/css" rel="stylesheet" href="css/scrolling-nav.css"/>
+</head>
+
+<!-- <body> -->
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="#page-top"><span class="lang-command">Title</span></a>
+      </div>
+
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li class="hidden"><a class="page-scroll" href="#page-top"></a></li>
+          <li><a class="page-scroll" href="#scenario01"><span class="lang-command">Scenario</span> 01</a></li>
+          <li><a class="page-scroll" href="#scenario02"><span class="lang-command">Scenario</span> 02</a></li>
+          <li><a class="page-scroll" href="#scenario03"><span class="lang-command">Scenario</span> 03</a></li>
+          <li><a class="page-scroll" href="#scenario04"><span class="lang-command">Scenario</span> 04</a></li>
+          <li><a class="page-scroll" href="#scenario05"><span class="lang-command">Scenario</span> 05</a></li>
+        </ul>
+        <i id="info-tab" class="fa fa-info-circle"></i>
+        <select id="soflow-l" onChange="languagesselectorListener()"></select>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Intro Section -->
+  <section id="intro" class="intro-section">
+    <div class="container">
+      <div id="demo-title" class="row">
+        <div class="col-sm-10 col-xs-12">
+          <h4 class="lang-command">Theme</h4>
+        </div>
+      </div>
+      <div id="demo-box">
+        <div class="row col-sm-6 col-xs-12">
+          <section id="demo-controls">
+            <h2 class="lang-command">AdvancedParameters</h2>
+            <div id="para-title">
+              <button id="default-button"><span class="lang-command">Default</span></button>
+            </div>
+            <div id="para-line"><i class="fa fa-question-circle-o" aria-hidden="true" title="$UnfriendingDiscription"></i> <span class="lang-command">Unfriending</span>:&nbsp;&nbsp;
+              <select id="soflow-u">
+                <option value="0">$Never</option>
+                <option value="0.5">$Sometimes</option>
+                <option value="0.9" selected="selected">$Often</option>
+              </select>
+            </div>
+            <section>
+              <h3>opinion1</h3>
+              <div id="para-line"><i class="fa fa-question-circle-o" aria-hidden="true" title="$ToleranceDiscription"></i> <span class="lang-command">Tolerance</span>:&nbsp;&nbsp;
+                <select id="soflow-t-first">
+                  <option value="0.2">$Low</option>
+                  <option value="0.4" selected="selected">$Medium</option>
+                  <option value="1.0">$High</option>
+                </select>
+              </div>
+              <div id="para-line"><i class="fa fa-question-circle-o" aria-hidden="true" title="$InfluenceDiscription"></i> <span class="lang-command">Influence</span>:&nbsp;&nbsp;
+                <select id="soflow-i-first">
+                  <option value="0">$Off</option>
+                  <option value="0.2">$Weak</option>
+                  <option value="0.8" selected="selected">$Strong</option>
+                </select>
+              </div>
+            </section>
+            <section>
+              <h3>opinion2</h3>
+              <div id="para-line"><i class="fa fa-question-circle-o" aria-hidden="true" title="$ToleranceDiscription"></i> <span class="lang-command">Tolerance</span>:&nbsp;&nbsp;
+                <select id="soflow-t-second">
+                  <option value="0.2">$Low</option>
+                  <option value="0.4" selected="selected">$Medium</option>
+                  <option value="1.0">$High</option>
+                </select>
+              </div>
+              <div id="para-line"><i class="fa fa-question-circle-o" aria-hidden="true" title="$InfluenceDiscription"></i> <span class="lang-command">Influence</span>:&nbsp;&nbsp;
+                <select id="soflow-i-second">
+                  <option value="0">$Off</option>
+                  <option value="0.2">$Weak</option>
+                  <option value="0.8" selected="selected">$Strong</option>
+                </select>
+              </div>
+            </section>
+          <div class="col-sm-6 col-xs-12">
+            <section id="demo-plot">
+              <h2>Opinion Distribution</h2>
+              <section>
+                <h3>opinion1</h3>
+                <div id="demo-epicurves-1"></div>
+                <div id="plot-xlable"><span class="lang-command">Time</span></div>
+              </section>
+              <section>
+                <h3>opinion2</h3>
+                <div id="demo-epicurves-2"></div>
+                <div id="plot-xlable"><span class="lang-command">Time</span></div>
+              </section>
+            </section>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8 col-xs-12">
+            <div id="demo-graph-layout">
+              <button id="start-button"><span class="lang-command">Start</span></button>
+              <button id="stop-button"><span class="lang-command">Stop</span></button>
+              <button id="reset-button"><span class="lang-command">Reset</span></button>
+              <span id="speed-box"><span class="lang-command">Speed</span>:</ br><input id="speed" type="range" min="0" max = "199" value="100" step="1" /></span>
+            </div>
+          </div>
+
+          <div class="col-sm-4 col-xs-12">
+            <div id="demo-chatting">
+            </div>
+          </div>
+          <article class="tutorial-section demo-article">
+            <section class="col-sm-6">
+              <h2>user distribution</h2>
+              <p class="lang-command plot-title">opinion1</p>
+              <div class="flex-row">
+                <div id="demo-opinion-graph-layout" class="graph-layout border-box"></div>
+                <span class="lang-command flex-row-center">opinion2</span>
+              </div>
+            </section>
+            <section class="col-sm-6">
+              <h2>Node parameter infomation</h2>
+              <div id="demo-color-graph">
+                <p class="lang-commnad plot-title">opinion1</p>
+                <span class="lang-command">progressive</span>
+                <span id="demo-right" class="lang-command">conservative</span>
+                <div class="flex-row">
+                  <div id="color-graph" class="graph-layout flex-row border-box"></div>
+                  <span id="demo-right" class="lang-command flex-row-center">opinion2</span>
+                </div>
+                <span id="demo-right" class="lang-command">progressive</span>
+              </div>
+              <div style="width: 50%; margin:0 auto; padding-top:20px;">
+                <p style="text-align:center;">Node Size</p>
+                <div id="para-line">
+                  <span class="lang-command">lesspopular</span>
+                  <span class="symbol small"></span>
+                </div>
+                <div id="para-line">
+                  <span class="lang-command">morepopular</span>
+                  <span class="symbol large"></span>
+                </div>
+              </div>
+            </section>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article id="footer" class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-12">
+        <div id="copyright">
+          <p><img src="img/block-iu.png" height="16" width="13" alt="IUB" align="top">&nbsp; <a id="copy" href="https://www.iu.edu/copyright/index.html">Copyright &copy; 2017</a><br/></p>
+          <div class="col-sm-2 col-xs-12">
+            <a href="https://twitter.com/share?url=https://haoopeng.github.io/echo-demo/&amp;text=Echo%20Chamber%20Demo&amp;hashtags=SocialMediaEchoChamber" target="_blank"><img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter"/></a>
+            <a href="http://www.facebook.com/sharer.php?u=https://haoopeng.github.io/echo-demo/" target="_blank"><img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook"/></a>
+          </div>
+          <p><a id="copy" href="http://www.nagoya-u.ac.jp/"><img src="img/NU_logo.png" height="22" width="38" alt="Nagoya Univ" border="0"></a></p>
+          <p><a id="copy" href="http://www.jst.go.jp/kisoken/presto/en/index.html"><img src="img/presto_enS.jpg" height="26" width="74" alt="Presto" border="0"></a></p>
+        </div>
+      </div>
+      <div class="col-md-10 col-sm-12">
+        <div id="author">
+          <a href="https://github.com/haoopeng/Social-Media-Echo-Chamber">Developed</a> by <a href="http://haoopeng.github.io/">Hao Peng</a>, inspired by <a href="http://bl.ocks.org/ccattuto/raw/5892995/">this</a> and <a href="https://github.com/yy/dviz-course">D3 course</a>, advised by <a href="http://cnets.indiana.edu/fil/">Filippo Menczer</a> and <a href="http://www.colorlessgreen.info/">Kazutoshi Sasahara</a><Br>
+          <span class="lang-command">TranslatersName</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <div id="info">
+    <div id="info-inner">
+      <i id="info-close" class="fa fa-times"></i>
+      <div id="info-inner-inner">
+        <h1 class="lang-command">InfoTitle</h1>
+        <h2 class="lang-command">InfoIntroQ</h2>
+        <p class="lang-command">InfoIntroA</p>
+        <h2 class="lang-command">InfoRepresentQ</h2>
+        <p class="lang-command">InfoRepresentA</p>
+        <h2 class="lang-command">InfoHowQ</h2>
+        <p class="lang-command">InfoHowA</p>
+        <h2 class="lang-command">InfoInstructionsQ</h2>
+        <p class="lang-command">InfoInstructionsA</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="js/jquery.flot.min.js"></script>
+  <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="js/jBox.min.js"></script>
+  <script type="text/javascript" src="js/scrolling-nav.js"></script>
+  <script type="text/javascript" src="js/d3.v4.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/d3-color.v1.min.js"></script>
+  <script type="text/javascript" src="js/d3-scale-chromatic.v1.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/d3-downloadable.js"></script>
+  <script type="text/javascript" src="js/svg-dataurl.js"></script>
+  <script type="text/javascript" src="js/html2canvas.min.js"></script>
+  <script type="text/javascript" src="js/languageset.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/language.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/info-tab.js"></script>
+
+  <script type="text/javascript" src="src/canvas-downloader.js"></script>
+  <script type="text/javascript" src="src/graph_color.js"></script>
+  <script type="text/javascript" src="src/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      new jBox('Tooltip', {
+        attach: 'i.fa.fa-question-circle-o',
+        theme: 'TooltipDark',
+        width: 350
+      });
+    });
+  </script>
+
+</body>
+
+</html>
