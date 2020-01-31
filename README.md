@@ -1,13 +1,13 @@
-# echo-demo
+# echo
 
-This is an interactive demo illustrating how social media echo chambers emerge from users' social media sharing activity.
+Demo by Mr. Hao Peng at one opinion [here](http://haoopeng.github.io/echo-demo/)
 
-Play with it [here](http://haoopeng.github.io/echo-demo/)
+## LICENCE
 
-## run
+Copyright (c) 2017 Hao Peng
+Released under the MIT license
+https://github.com/haoopeng/echo/blob/master/LICENSE
 
-python version3.X.X 環境構築済み前提
-> python -m http.server 8000
+## Run
 
-または
-> python3 -m http.server 8000
+open by index.html
