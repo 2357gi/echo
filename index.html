@@ -118,18 +118,29 @@
               </section>
             </div>
             <div class="col-sm-6 col-xs-12">
-              <section id="demo-plot">
-                <h2>Opinion Distribution</h2>
-                <section>
-                  <h3>opinion1</h3>
-                  <div id="demo-epicurves-1"></div>
-                  <div id="plot-xlable"><span class="lang-command">Time</span></div>
-                </section>
-                <section>
-                  <h3>opinion2</h3>
-                  <div id="demo-epicurves-2"></div>
-                  <div id="plot-xlable"><span class="lang-command">Time</span></div>
-                </section>
+              <section>
+                <h2>Node parameter infomation</h2>
+                <div id="demo-color-graph">
+                  <p class="lang-commnad plot-title">opinion1</p>
+                  <span class="lang-command">progressive</span>
+                  <span id="demo-right" class="lang-command">conservative</span>
+                  <div class="flex-row">
+                    <div id="color-graph" class="graph-layout flex-row border-box"></div>
+                    <span id="demo-right" class="lang-command flex-row-center">opinion2</span>
+                  </div>
+                  <span id="demo-right" class="lang-command">progressive</span>
+                </div>
+                <div style="width: 50%; margin:0 auto; padding-top:20px;">
+                  <p style="text-align:center;">Node Size</p>
+                  <div id="para-line">
+                    <span class="lang-command">lesspopular</span>
+                    <span class="symbol small"></span>
+                  </div>
+                  <div id="para-line">
+                    <span class="lang-command">morepopular</span>
+                    <span class="symbol large"></span>
+                  </div>
+                </div>
               </section>
             </div>
           </div>
@@ -157,29 +168,18 @@
                 <span class="lang-command flex-row-center">opinion2</span>
               </div>
             </section>
-            <section class="col-sm-6">
-              <h2>Node parameter infomation</h2>
-              <div id="demo-color-graph">
-                <p class="lang-commnad plot-title">opinion1</p>
-                <span class="lang-command">progressive</span>
-                <span id="demo-right" class="lang-command">conservative</span>
-                <div class="flex-row">
-                  <div id="color-graph" class="graph-layout flex-row border-box"></div>
-                  <span id="demo-right" class="lang-command flex-row-center">opinion2</span>
-                </div>
-                <span id="demo-right" class="lang-command">progressive</span>
-              </div>
-              <div style="width: 50%; margin:0 auto; padding-top:20px;">
-                <p style="text-align:center;">Node Size</p>
-                <div id="para-line">
-                  <span class="lang-command">lesspopular</span>
-                  <span class="symbol small"></span>
-                </div>
-                <div id="para-line">
-                  <span class="lang-command">morepopular</span>
-                  <span class="symbol large"></span>
-                </div>
-              </div>
+            <section class="col-sm-6" id="demo-plot">
+              <h2>Opinion Distribution</h2>
+              <section>
+                <h3>opinion1</h3>
+                <div id="demo-epicurves-1"></div>
+                <div id="plot-xlable"><span class="lang-command">Time</span></div>
+              </section>
+              <section>
+                <h3>opinion2</h3>
+                <div id="demo-epicurves-2"></div>
+                <div id="plot-xlable"><span class="lang-command">Time</span></div>
+              </section>
             </section>
           </article>
         </div>
